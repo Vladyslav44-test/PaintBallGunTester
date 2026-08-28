@@ -13,7 +13,7 @@ namespace PaintBallGunTester
             PaintBallGun gun = new PaintBallGun();
             while (true)
             {
-                Console.WriteLine($"{gun.Balls} balls, {gun.GetBallsLoaded()} loaded");
+                Console.WriteLine($"{gun.Balls} balls, {gun.BallsLoaded} loaded");
                 if (gun.IsEmpty()) Console.WriteLine("WARNING: You're out of ammo");
                 Console.WriteLine("Space to shoot, r to reload, + to add ammo, q to quit");
                 char key = Console.ReadKey(true).KeyChar;

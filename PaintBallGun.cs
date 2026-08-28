@@ -9,8 +9,7 @@ namespace PaintBallGunTester
     internal class PaintBallGun
     {
         public const int MAGAZINE_SIZE = 16;
-        public int balls = 0;
-        public int ballsLoaded = 0;
+        private int balls = 0;
 
         public int Balls
         {
@@ -21,18 +20,18 @@ namespace PaintBallGunTester
                 Reload();
             }
         }
+        public int BallsLoaded { get; private set; }
 
-        public int GetBallsLoaded() { return ballsLoaded; }
-        public bool IsEmpty() { return ballsLoaded == 0; }
+        public bool IsEmpty() { return BallsLoaded == 0; }
         public void Reload()
         {
-            if (balls > MAGAZINE_SIZE) ballsLoaded = MAGAZINE_SIZE;
-            else ballsLoaded = balls;
+            if (balls > MAGAZINE_SIZE) BallsLoaded = MAGAZINE_SIZE;
+            else BallsLoaded = balls;
         }
         public bool Shoot()
         {
-            if (ballsLoaded == 0) return false;
-            ballsLoaded--;
+            if (IsEmpty()) return false;
+            BallsLoaded--;
             balls--;
             return true;
         }
